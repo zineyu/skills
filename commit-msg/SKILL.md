@@ -1,10 +1,6 @@
 ---
 name: commit-msg
 description: Generate conventional commit messages from repository changes.
-license: Apache-2.0
-metadata:
-  author: example-org
-  version: "1.0"
 ---
 
 # Generate Conventional Commit Messages
