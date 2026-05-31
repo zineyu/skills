@@ -1,6 +1,53 @@
 # Environment & CORS Management
 
-Patterns for managing environment variables, API URLs, and CORS configuration across frontend and backend stacks.
+Patterns for managing environment variables, API URLs, and CORS configuration across frontend and backend stacks. Includes centralized type-safe config.
+
+---
+
+## Centralized Type-Safe Config
+
+**TypeScript:**
+```typescript
+const config = {
+  port: parseInt(process.env.PORT || '3000', 10),
+  database: { url: requiredEnv('DATABASE_URL'), poolSize: intEnv('DB_POOL_SIZE', 10) },
+  auth: { jwtSecret: requiredEnv('JWT_SECRET'), expiresIn: process.env.JWT_EXPIRES_IN || '1h' },
+} as const;
+
+function requiredEnv(name: string): string {
+  const value = process.env[name];
+  if (!value) throw new Error(`Missing required env var: ${name}`);  // fail fast
+  return value;
+}
+```
+
+**Python:**
+```python
+from pydantic_settings import BaseSettings
+
+class Settings(BaseSettings):
+    database_url: str                        # required
+    jwt_secret: str                          # required
+    port: int = 3000
+    db_pool_size: int = 10
+    class Config:
+        env_file = ".env"
+
+settings = Settings()                        # fails fast if DATABASE_URL missing
+```
+
+### Rules
+
+```
+✅ All config via environment variables (Twelve-Factor)
+✅ Validate required vars at startup — fail fast
+✅ Type-cast at config layer, not at usage sites
+✅ Commit .env.example with dummy values
+
+❌ Never hardcode secrets, URLs, or credentials
+❌ Never commit .env files
+❌ Never scatter process.env / os.environ throughout code
+```
 
 ---
 

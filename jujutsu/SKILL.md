@@ -1,314 +1,83 @@
 ---
 name: jujutsu
-description: "**REQUIRED** - ALways activate FIRST on any git/VCS operations (commit, status, branch, push, etc.), especially when HEAD is detached. If `.jj/` exists -> this is a Jujutsu (jj) repo - git commands will corrupt data. Essential git safety instructions inside. DO NOT IGNORE."
+description: Work with Jujutsu, a Git-compatible VCS with mutable commits and automatic rebasing. Use when running git/VCS operations (commit, status, branch, push, etc.), especially when HEAD is detached or a `.jj/` directory exists. Essential safety instructions for agent environments.
 allowed-tools: Bash(jj *)
 ---
 
-# Jujutsu (jj) Version Control System
+# Jujutsu (jj) Version Control
 
-This skill helps you work with Jujutsu, a Git-compatible VCS with mutable commits and automatic rebasing.
-
-**Tested with jj v0.37.0** - Commands may differ in other versions.
-
-## Important: Automated/Agent Environment
-
-When running as an agent:
-
-1. **Always use `-m` flags** to provide messages inline rather than relying on editor prompts:
+## Quick start
 
 ```bash
-# Always use -m to avoid editor prompts
-jj desc -m "message"      # NOT: jj desc
-jj squash -m "message"    # NOT: jj squash (which opens editor)
-```
-
-Editor-based commands will fail in non-interactive environments.
-
-2. **Verify operations with `jj st`** after mutations (`squash`, `abandon`, `rebase`, `restore`) to confirm the operation succeeded.
-
-## Core Concepts
-
-### The Working Copy is a Commit
-
-In jj, your working directory is always a commit (referenced as `@`). Changes are automatically snapshotted when you run any jj command. There is no staging area.
-
-There is no need to run `jj commit`.
-
-### Commits Are Mutable
-
-**CRITICAL**: Unlike git, jj commits can be freely modified. This enables a high-quality commit workflow:
-
-1. Before starting work, run `jj st`. If `@` already has changes, run `jj new` first. If `@` is empty, use it as-is.
-2. Describe your intended changes with `jj desc -m"Message"`
-3. Make your changes.
-4. Do NOT run `jj new` when finished — leave that to the next task's step 1.
-
-You may refine the commit using `jj squash` or `jj absorb` as needed
-
-### Change IDs vs Commit IDs
-
-- **Change ID**: A stable identifier (like `tqpwlqmp`) that persists when a commit is rewritten
-- **Commit ID**: A content hash (like `3ccf7581`) that changes when commit content changes
-
-Prefer using Change IDs when referencing commits in commands.
-
-## Essential Workflow
-
-### Starting Work: Describe First, Then Code
-
-**Always create your commit message before writing code:**
-
-```bash
-# First, describe what you intend to do
-jj desc -m "Add user authentication to login endpoint"
-
-# Then make your changes - they automatically become part of this commit
-# ... edit files ...
-
-# Check status
+# View status
 jj st
-```
 
-### Creating Atomic Commits
+# Describe the current commit before coding
+jj desc -m "Add feature X"
 
-Each commit should represent ONE logical change. Use this format for commit messages:
-
-```
-Examples:
-- "Add validation to user input forms"
-- "Fix null pointer in payment processor"
-- "Remove deprecated API endpoints"
-- "Update dependencies to latest versions"
-```
-
-### Viewing History
-
-```bash
-# View recent commits
-jj log
-
-# View with patches
-jj log -p
-
-# View specific commit
-jj show <change-id>
-
-# View diff of working copy
+# View diff
 jj diff
-```
 
-### Moving Between Commits
-
-```bash
-# Create a new empty commit on top of current
-jj new
-
-# Create new commit with message
-jj new && jj desc -m "Commit message"
-
-# Edit an existing commit (working copy becomes that commit)
-jj edit <change-id>
-
-# Edit the previous commit
-jj prev -e
-
-# Edit the next commit
-jj next -e
-```
-
-## Refining Commits
-
-### Squashing Changes
-
-Move changes from current commit into its parent:
-
-```bash
-# Squash all changes into parent
-jj squash
-```
-
-**Note**: `jj squash -i` opens an interactive UI and will hang in agent environments. Avoid it.
-
-### Splitting Commits
-
-**Warning**: `jj split` is interactive and will hang in agent environments. To divide a commit, use `jj restore` to move changes out, then create separate commits manually.
-
-### Absorbing Changes
-
-Automatically distribute changes to the commits that last modified those lines:
-
-```bash
-# Absorb working copy changes into appropriate ancestor commits
-jj absorb
-```
-
-### Abandoning Commits
-
-Remove a commit entirely (descendants are rebased to its parent):
-
-```bash
-jj abandon <change-id>
-```
-
-### Undoing Operations
-
-Reverse the last jj operation:
-
-```bash
+# Undo last operation
 jj undo
 ```
 
-This reverts the repository to its state before the previous command. Useful for recovering from mistakes like accidental `abandon`, `squash`, or `rebase`.
+## Core concepts
 
-### Restoring Files
+- **Working copy is a commit**: Your working directory is always commit `@`. Changes auto-snapshot on any jj command. No staging area.
+- **Commits are mutable**: Freely modify commits with `jj squash`, `jj absorb`, `jj edit`. No need for fixup commits.
+- **Change IDs are stable**: Prefer change IDs (e.g. `tqpwlqmp`) over commit IDs — they persist across rewrites.
 
-Discard changes to specific files or restore files from another revision:
+## Workflows
 
-```bash
-# Discard all uncommitted changes in working copy (restore from parent)
-jj restore
+### Starting work
 
-# Discard changes to specific files
-jj restore path/to/file.txt
+1. Run `jj st`. If `@` has changes, run `jj new` first.
+2. Describe intent: `jj desc -m "Verb object"`
+3. Make changes — they auto-attach to `@`.
+4. Verify with `jj st`.
 
-# Restore files from a specific revision
-jj restore --from <change-id> path/to/file.txt
-```
+### Refining commits
 
-## Working with Bookmarks (Branches)
+| Goal | Command |
+|------|---------|
+| Move changes to parent | `jj squash` |
+| Auto-distribute to ancestors | `jj absorb` |
+| Drop a commit | `jj abandon <change-id>` |
+| Discard uncommitted changes | `jj restore [paths]` |
+| Restore from revision | `jj restore --from <id> path` |
 
-Bookmarks are jj's equivalent to git branches:
-
-```bash
-# Create a bookmark at current commit
-jj bookmark create my-feature -r@
-
-# Move bookmark to a different commit
-jj bookmark move my-feature --to <change-id>
-
-# List bookmarks
-jj bookmark list
-
-# Delete a bookmark
-jj bookmark delete my-feature
-```
-
-## Git Integration
-
-### Working with Existing Git Repos
-
-```bash
-# Clone a git repository
-jj git clone <url>
-
-# Initialize jj in an existing git repo
-jj git init --colocate
-```
-
-### Switching Between jj and git (Colocated Repos)
-
-In a colocated repository (where both `.jj/` and `.git/` exist), you can use both jj and git commands. However, there are important considerations:
-
-**Switching to git mode** (e.g., for merge workflows):
-```bash
-# First, ensure your jj working copy is clean
-jj st
-
-# Then checkout a branch with git
-git checkout <branch-name>
-```
-
-**Switching back to jj mode**:
-```bash
-# Use jj edit to resume working with jj
-jj edit <change-id>
-```
-
-**Important notes:**
-- Git may complain about uncommitted changes if jj's working copy differs from the git HEAD
-- ALWAYS ensure your work is committed in jj before switching to git
-- After git operations, jj will detect and incorporate the changes on next command
-
-### Pushing Changes
-
-When the user asks you to push changes:
-
-```bash
-# Push a specific bookmark to the remote
-jj git push -b <bookmark-name>
-
-# Example: push the main bookmark
-jj git push -b main
-```
-
-**Before pushing, ensure:**
-1. Your bookmark points to the correct commit (bookmarks don't auto-advance like git branches)
-2. The commits are refined and atomic
-3. The user has explicitly requested the push
-
-**IMPORTANT**: Unlike git branches, jj bookmarks do not automatically move when you create new commits. You must manually update them before pushing:
-
-```bash
-# Move an existing bookmark to the current commit
-jj bookmark move my-feature --to @
-
-# Then push it
-jj git push -b my-feature
-```
-
-If no bookmark exists for your changes, create one first:
-
-```bash
-# Create a bookmark at the current commit
-jj bookmark create my-feature
-
-# Then push it
-jj git push -b my-feature
-```
-
-## Handling Conflicts
-
-jj allows committing conflicts — you can resolve them later:
-
-```bash
-# View conflicts
-jj st
-```
-
-**Agent conflict resolution**: Do not use `jj resolve` (interactive). Instead, edit the conflicted files directly to remove conflict markers, then run `jj st` to verify resolution.
-
-## Preserving Commit Quality
-
-**IMPORTANT**: Because commits are mutable, always refine them:
-
-1. **Review your commit**: `jj show @` or `jj diff`
-2. **Is it atomic?** One logical change per commit
-3. **Is the message clear?** Use imperative verb phrase in sentence case format with no full stop: "Verb object"
-4. **Are there unrelated changes?** Use `jj restore` to move changes out, then create separate commits
-5. **Should changes be elsewhere?** Use `jj squash` or `jj absorb`
-
-## Quick Reference
+## Quick reference
 
 | Action | Command |
 |--------|---------|
-| Describe commit | `jj desc -m "message"` |
-| View status | `jj st` |
-| View log | `jj log` |
-| View diff | `jj diff` |
-| New commit | `jj st` then `jj new` only if `@` has changes, then `jj desc -m "message"` |
-| Edit commit | `jj edit <id>` |
+| Status | `jj st` |
+| Log | `jj log` / `jj log -p` |
+| Diff | `jj diff` |
+| New commit | `jj new` |
+| Describe | `jj desc -m "message"` |
+| Edit commit | `jj edit <change-id>` |
 | Squash to parent | `jj squash` |
 | Auto-distribute | `jj absorb` |
-| Abandon commit | `jj abandon <id>` |
-| Undo last operation | `jj undo` |
-| Restore files | `jj restore [paths]` |
-| Create bookmark | `jj bookmark create <name>` |
-| Push bookmark | `jj git push -b <name>` |
+| Abandon | `jj abandon <id>` |
+| Undo | `jj undo` |
+| Create bookmark | `jj bookmark create <name> -r@` |
+| Move bookmark | `jj bookmark move <name> --to @` |
+| Push | `jj git push -b <name>` |
 
-## Best Practices Summary
+## Agent environment rules
 
-1. **Describe first**: Set the commit message before coding
-2. **One change per commit**: Keep commits atomic and focused
-3. **Use change IDs**: They're stable across rewrites
-4. **Refine commits**: Leverage mutability for clean history
-5. **Embrace the workflow**: No staging area, no stashing - just commits
+- **Always use `-m` flags** — editor prompts hang in non-interactive environments.
+- **Verify with `jj st`** after `squash`, `abandon`, `rebase`, `restore`.
+- **Avoid interactive commands**: `jj squash -i`, `jj split`, `jj resolve` will hang.
+- **Conflict resolution**: Edit files directly to remove conflict markers, then `jj st`.
+
+## Best practices
+
+1. **Describe first** — set the commit message before coding.
+2. **One change per commit** — atomic, focused commits.
+3. **Use change IDs** — stable across rewrites.
+4. **Refine commits** — leverage mutability for clean history.
+5. **Bookmarks don't auto-advance** — manually `jj bookmark move` before pushing.
+
+See [REFERENCE.md](REFERENCE.md) for detailed workflows, Git integration, and conflict handling.
