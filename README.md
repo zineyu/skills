@@ -16,8 +16,8 @@ Personal agent skills repository. Each subdirectory is a self-contained skill th
 
 | Skill | Description |
 |-------|-------------|
-| browser-cdp | Control Chrome via CDP for browser automation |
 | commit-msg | Generate conventional commit messages |
+| create-agentsmd | Generate AGENTS.md for a repository |
 | diagnose | Disciplined diagnosis loop for hard bugs |
 | find-skills | Discover and install agent skills |
 | fullstack-dev | Full-stack backend & frontend integration |
@@ -27,21 +27,15 @@ Personal agent skills repository. Each subdirectory is a self-contained skill th
 | improve-codebase-architecture | Find deepening opportunities in codebases |
 | jujutsu | Jujutsu (jj) VCS operations guide |
 | llm-wiki | LLM-driven personal knowledge base |
-| managing-kubernetes-etcd-and-sre | K8s, etcd, and SRE practices |
 | obsidian-bases | Obsidian Bases (.base files) |
 | obsidian-cli | Obsidian vault CLI operations |
 | obsidian-markdown | Obsidian Flavored Markdown |
-| self-improve-skill | Auto-create skills from learned patterns |
-| setup-matt-pocock-skills | Setup Matt Pocock's skills |
-| software-engineering-practices | Production-ready software patterns |
-| system-architecture-practices | Architecture & design methodology |
+| setup-matt-pocock-skills | Scaffold repo config for Matt Pocock's skills |
 | tdd | Test-driven development |
 | to-issues | Break plans into tracker issues |
 | to-prd | Turn conversation into a PRD |
-| vue-ecosystem | Vue.js 3 ecosystem best practices |
-| web-design-guidelines | Web Interface Guidelines review |
 | write-a-skill | Create new agent skills |
-| zoom-out | (no description yet) |
+| zoom-out | Zoom out for broader context or higher-level perspective |
 
 ## Usage
 
