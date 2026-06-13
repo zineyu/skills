@@ -12,30 +12,59 @@ Personal agent skills repository. Each subdirectory is a self-contained skill th
 └── README.md
 ```
 
-## Skills List
+## Skills by Category
+
+### Engineering Execution
 
 | Skill | Description |
 |-------|-------------|
-| commit-msg | Generate conventional commit messages |
-| create-agentsmd | Generate AGENTS.md for a repository |
 | diagnose | Disciplined diagnosis loop for hard bugs |
-| find-skills | Discover and install agent skills |
-| fullstack-dev | Full-stack backend & frontend integration |
-| grill-me | Interview-style stress-test for plans |
-| grill-with-docs | Grill against domain model and update docs |
-| handoff | Compact conversation into handoff document |
+| endpoint-performance-diagnosis | Systematic endpoint performance bottleneck diagnosis |
+| fullstack-dev | Full-stack backend & frontend integration guide |
+| tdd | Test-driven development with red-green-refactor loop |
+
+### Planning & Requirements
+
+| Skill | Description |
+|-------|-------------|
+| grill-me | Stress-test a plan with relentless questions |
+| grill-with-docs | Stress-test a plan against the domain model and docs |
+| to-issues | Break a plan into independently-grabbable tracker issues |
+| to-prd | Turn conversation context into a PRD |
+| zoom-out | Get a higher-level perspective on unfamiliar code |
+
+### Architecture & Quality
+
+| Skill | Description |
+|-------|-------------|
+| create-agentsmd | Generate AGENTS.md for a repository |
 | improve-codebase-architecture | Find deepening opportunities in codebases |
-| jujutsu | Jujutsu (jj) VCS operations guide |
+| setup-matt-pocock-skills | Scaffold repo config for Matt Pocock's skills |
+
+### Knowledge Management & Obsidian
+
+| Skill | Description |
+|-------|-------------|
 | llm-wiki | LLM-driven personal knowledge base |
 | obsidian-bases | Obsidian Bases (.base files) |
 | obsidian-cli | Obsidian vault CLI operations |
 | obsidian-markdown | Obsidian Flavored Markdown |
-| setup-matt-pocock-skills | Scaffold repo config for Matt Pocock's skills |
-| tdd | Test-driven development |
-| to-issues | Break plans into tracker issues |
-| to-prd | Turn conversation into a PRD |
+
+### VCS & Delivery
+
+| Skill | Description |
+|-------|-------------|
+| commit-msg | Generate conventional commit messages |
+| handoff | Compact conversation into a handoff document |
+| jujutsu | Jujutsu (jj) VCS operations guide |
+
+### Skill Authoring & Discovery
+
+| Skill | Description |
+|-------|-------------|
+| find-skills | Discover and install agent skills |
+| session-to-skill | Distill session experience into a reusable skill |
 | write-a-skill | Create new agent skills |
-| zoom-out | Zoom out for broader context or higher-level perspective |
 
 ## Usage
 
