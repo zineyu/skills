@@ -6,11 +6,21 @@ Personal agent skills repository. Each subdirectory is a self-contained skill th
 
 ```
 .
-├── <skill-name>/
-│   ├── SKILL.md
-│   └── ... (supporting files)
+├── <category>/
+│   └── <skill-name>/
+│       ├── SKILL.md
+│       └── ... (supporting files)
 └── README.md
 ```
+
+### Categories
+
+- `engineering-execution` — coding, debugging, testing, performance
+- `planning-requirements` — planning, grilling, PRDs, issue breakdown
+- `architecture-quality` — architecture reviews, repo conventions
+- `knowledge-obsidian` — Obsidian vault and knowledge-base workflows
+- `vcs-delivery` — version control and handoff
+- `skill-authoring` — creating and discovering skills
 
 ## Skills by Category
 
@@ -18,53 +28,53 @@ Personal agent skills repository. Each subdirectory is a self-contained skill th
 
 | Skill | Description |
 |-------|-------------|
-| diagnose | Disciplined diagnosis loop for hard bugs |
-| endpoint-performance-diagnosis | Systematic endpoint performance bottleneck diagnosis |
-| fullstack-dev | Full-stack backend & frontend integration guide |
-| tdd | Test-driven development with red-green-refactor loop |
+| engineering-execution/diagnose | Disciplined diagnosis loop for hard bugs |
+| engineering-execution/endpoint-performance-diagnosis | Systematic endpoint performance bottleneck diagnosis |
+| engineering-execution/fullstack-dev | Full-stack backend & frontend integration guide |
+| engineering-execution/tdd | Test-driven development with red-green-refactor loop |
 
 ### Planning & Requirements
 
 | Skill | Description |
 |-------|-------------|
-| grill-me | Stress-test a plan with relentless questions |
-| grill-with-docs | Stress-test a plan against the domain model and docs |
-| to-issues | Break a plan into independently-grabbable tracker issues |
-| to-prd | Turn conversation context into a PRD |
-| zoom-out | Get a higher-level perspective on unfamiliar code |
+| planning-requirements/grill-me | Stress-test a plan with relentless questions |
+| planning-requirements/grill-with-docs | Stress-test a plan against the domain model and docs |
+| planning-requirements/to-issues | Break a plan into independently-grabbable tracker issues |
+| planning-requirements/to-prd | Turn conversation context into a PRD |
+| planning-requirements/zoom-out | Get a higher-level perspective on unfamiliar code |
 
 ### Architecture & Quality
 
 | Skill | Description |
 |-------|-------------|
-| create-agentsmd | Generate AGENTS.md for a repository |
-| improve-codebase-architecture | Find deepening opportunities in codebases |
-| setup-matt-pocock-skills | Scaffold repo config for Matt Pocock's skills |
+| architecture-quality/create-agentsmd | Generate AGENTS.md for a repository |
+| architecture-quality/improve-codebase-architecture | Find deepening opportunities in codebases |
+| architecture-quality/setup-matt-pocock-skills | Scaffold repo config for Matt Pocock's skills |
 
 ### Knowledge Management & Obsidian
 
 | Skill | Description |
 |-------|-------------|
-| llm-wiki | LLM-driven personal knowledge base |
-| obsidian-bases | Obsidian Bases (.base files) |
-| obsidian-cli | Obsidian vault CLI operations |
-| obsidian-markdown | Obsidian Flavored Markdown |
+| knowledge-obsidian/llm-wiki | LLM-driven personal knowledge base |
+| knowledge-obsidian/obsidian-bases | Obsidian Bases (.base files) |
+| knowledge-obsidian/obsidian-cli | Obsidian vault CLI operations |
+| knowledge-obsidian/obsidian-markdown | Obsidian Flavored Markdown |
 
 ### VCS & Delivery
 
 | Skill | Description |
 |-------|-------------|
-| commit-msg | Generate conventional commit messages |
-| handoff | Compact conversation into a handoff document |
-| jujutsu | Jujutsu (jj) VCS operations guide |
+| vcs-delivery/commit-msg | Generate conventional commit messages |
+| vcs-delivery/handoff | Compact conversation into handoff document |
+| vcs-delivery/jujutsu | Jujutsu (jj) VCS operations guide |
 
 ### Skill Authoring & Discovery
 
 | Skill | Description |
 |-------|-------------|
-| find-skills | Discover and install agent skills |
-| session-to-skill | Distill session experience into a reusable skill |
-| write-a-skill | Create new agent skills |
+| skill-authoring/find-skills | Discover and install agent skills |
+| skill-authoring/session-to-skill | Distill session experience into a reusable skill |
+| skill-authoring/write-a-skill | Create new agent skills |
 
 ## Usage
 
