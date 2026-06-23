@@ -1,0 +1,4 @@
+interface:
+  display_name: "NewAPI Tenant Token Practices"
+  short_description: "NewAPI tenant token naming and lifecycle"
+  default_prompt: "Use $newapi-tenant-token-practices for NewAPI tenant token naming, create-or-reuse lifecycle, and application-specific tenant/group routing."
