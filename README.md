@@ -89,8 +89,8 @@ Personal agent skills repository. Each subdirectory is a self-contained skill th
 
 | Skill | Description |
 |-------|-------------|
+| skill-authoring/distill | Distill session context into reusable skills, docs, notes, or checklists |
 | skill-authoring/find-skills | Discover and install agent skills |
-| skill-authoring/session-to-skill | Distill session experience into a reusable skill |
 | skill-authoring/using-agent-skills | Discovers and invokes agent skills |
 | skill-authoring/write-a-skill | Create new agent skills |
 
