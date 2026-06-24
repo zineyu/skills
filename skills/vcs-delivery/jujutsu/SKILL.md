@@ -37,6 +37,17 @@ jj undo
 3. Make changes — they auto-attach to `@`.
 4. Verify with `jj st`.
 
+### Using workspaces
+
+Jujutsu workspaces are like Git worktrees: multiple working directories backed by a single repo. They are especially useful when an AI agent needs to work on a side task while you keep coding in the main directory.
+
+1. Create a workspace: `jj workspace add ../my-project-task`
+2. The agent works in `../my-project-task` with its own working-copy commit.
+3. Continue working in the original directory; both share the same history.
+4. When done, remove tracking: `jj workspace forget task-name` and delete the directory.
+
+If a workspace's working copy becomes stale because another workspace rewrote its commit, run `jj workspace update-stale` to refresh it.
+
 ### Refining commits
 
 | Goal | Command |
@@ -64,6 +75,10 @@ jj undo
 | Create bookmark | `jj bookmark create <name> -r@` |
 | Move bookmark | `jj bookmark move <name> --to @` |
 | Push | `jj git push -b <name>` |
+| Add workspace | `jj workspace add <path>` |
+| List workspaces | `jj workspace list` |
+| Forget workspace | `jj workspace forget <name>` |
+| Update stale workspace | `jj workspace update-stale` |
 
 ## Agent environment rules
 

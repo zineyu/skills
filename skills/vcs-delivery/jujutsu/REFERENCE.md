@@ -98,6 +98,65 @@ jj bookmark delete my-feature
 
 Bookmarks do **not** automatically advance when you create new commits. Always move them before pushing.
 
+## Workspaces
+
+Jujutsu workspaces provide multiple working directories backed by a single repo, similar to Git worktrees. They are especially useful when you want an AI agent to work on a separate task in parallel while you continue in the main directory.
+
+### Creating and using workspaces
+
+```bash
+# Create a new workspace in a sibling directory
+jj workspace add ../my-project-task
+
+# List all workspaces
+jj workspace list
+
+# Show the current workspace's root directory
+jj workspace root
+
+# Show another workspace's root directory
+jj workspace root --name my-project-task
+
+# Rename the current workspace
+jj workspace rename my-project-task
+```
+
+Each workspace has its own working-copy commit. In `jj log`, other workspaces appear as `<workspace name>@`. All workspaces share the same repository history, so changes committed in one workspace are immediately visible in the others.
+
+### Removing workspaces
+
+```bash
+# Stop tracking a workspace (does not delete files on disk)
+jj workspace forget my-project-task
+
+# Then delete the directory separately
+rm -rf ../my-project-task
+```
+
+Use `jj workspace forget` before deleting the directory. If you delete the directory first, the repo will still know about the workspace until you run `jj workspace forget`.
+
+### Stale working copies
+
+If one workspace rewrites the working-copy commit of another workspace, the affected workspace's files become stale. Run:
+
+```bash
+jj workspace update-stale
+```
+
+This updates the working-copy files to match the current operation. A workspace can also become stale if a command is interrupted (e.g., by `^C`) before it finishes updating the working copy.
+
+### Workspaces vs. Git worktrees
+
+| Concept | Git worktrees | Jujutsu workspaces |
+|--------|---------------|--------------------|
+| Multiple working directories | `git worktree add` | `jj workspace add` |
+| Each has its own checked-out commit | Yes | Yes |
+| Share object/history storage | Yes | Yes |
+| Remove tracking | `git worktree remove` | `jj workspace forget` |
+| Recover stale copy | Manual checkout | `jj workspace update-stale` |
+
+In colocated repos (where both `.jj/` and `.git/` exist), jj workspaces and Git worktrees can coexist, but prefer `jj workspace` commands for jj-managed working copies to avoid confusing either tool.
+
 ## Git integration
 
 ### Clone and init
@@ -138,6 +197,7 @@ jj git push -b my-feature
 ```
 
 Before pushing:
+
 1. Bookmark points to the correct commit.
 2. Commits are refined and atomic.
 3. User has explicitly requested the push.
