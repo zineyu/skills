@@ -41,6 +41,7 @@ Personal agent skills repository. Each subdirectory is a self-contained skill th
 | skills/engineering-execution/frontend-ui-engineering | Builds production-quality UIs |
 | skills/engineering-execution/fullstack-dev | Full-stack backend & frontend integration guide |
 | skills/engineering-execution/incremental-implementation | Delivers changes incrementally |
+| skills/engineering-execution/llm-prompt-source-isolation | Isolates current user input from LLM reference context |
 | skills/engineering-execution/observability-and-instrumentation | Instruments code for production visibility |
 | skills/engineering-execution/performance-optimization | Optimizes application performance |
 | skills/engineering-execution/security-and-hardening | Hardens code against vulnerabilities |
@@ -54,6 +55,7 @@ Personal agent skills repository. Each subdirectory is a self-contained skill th
 | skills/planning-requirements/grill-me | Stress-test a plan with relentless questions |
 | skills/planning-requirements/grill-with-docs | Stress-test a plan against the domain model and docs |
 | skills/planning-requirements/idea-refine | Refines raw ideas into actionable concepts |
+| skills/planning-requirements/implementation-design-planning | Turn requirements into confirmed designs and executable plans |
 | skills/planning-requirements/to-issues | Break a plan into independently-grabbable tracker issues |
 | skills/planning-requirements/to-prd | Turn conversation context into a PRD |
 | skills/planning-requirements/zoom-out | Get a higher-level perspective on unfamiliar code |
