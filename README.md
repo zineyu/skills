@@ -16,86 +16,87 @@ Personal agent skills repository. Each subdirectory is a self-contained skill th
 
 ### Categories
 
-- `skills/engineering-execution` — coding, debugging, testing, performance
-- `skills/planning-requirements` — planning, grilling, PRDs, issue breakdown
-- `skills/architecture-quality` — architecture reviews, repo conventions
-- `skills/knowledge-obsidian` — Obsidian vault and knowledge-base workflows
-- `skills/vcs-delivery` — version control and handoff
-- `skills/skill-authoring` — creating and discovering skills
+- `skills/engineering` — coding, debugging, testing, performance, security
+- `skills/planning` — planning, grilling, PRDs, issue breakdown
+- `skills/architecture` — architecture reviews, repo conventions, decisions
+- `skills/obsidian` — Obsidian vault and knowledge-base workflows
+- `skills/delivery` — version control, handoff, launch
+- `skills/authoring` — creating and discovering skills
 
 ## Skills by Category
 
-### Engineering Execution
+### Engineering
 
 | Skill | Description |
 |-------|-------------|
-| skills/engineering-execution/api-and-interface-design | Guides stable API and interface design |
-| skills/engineering-execution/browser-testing-with-devtools | Tests in real browsers via Chrome DevTools MCP |
-| skills/engineering-execution/ci-cd-and-automation | Automates CI/CD pipeline setup |
-| skills/engineering-execution/code-review-and-quality | Conducts multi-axis code review |
-| skills/engineering-execution/code-simplification | Simplifies code for clarity |
-| skills/engineering-execution/deprecation-and-migration | Manages deprecation and migration |
-| skills/engineering-execution/diagnose | Disciplined diagnosis loop for hard bugs |
-| skills/engineering-execution/doubt-driven-development | Adversarial review of non-trivial decisions |
-| skills/engineering-execution/endpoint-performance-diagnosis | Systematic endpoint performance bottleneck diagnosis |
-| skills/engineering-execution/frontend-ui-engineering | Builds production-quality UIs |
-| skills/engineering-execution/fullstack-dev | Full-stack backend & frontend integration guide |
-| skills/engineering-execution/incremental-implementation | Delivers changes incrementally |
-| skills/engineering-execution/llm-prompt-source-isolation | Isolates current user input from LLM reference context |
-| skills/engineering-execution/observability-and-instrumentation | Instruments code for production visibility |
-| skills/engineering-execution/performance-optimization | Optimizes application performance |
-| skills/engineering-execution/security-and-hardening | Hardens code against vulnerabilities |
-| skills/engineering-execution/source-driven-development | Grounds decisions in official documentation |
-| skills/engineering-execution/tdd | Test-driven development with red-green-refactor loop |
+| skills/engineering/api-and-interface-design | Guides stable API and interface design |
+| skills/engineering/browser-testing-with-devtools | Tests in real browsers via Chrome DevTools MCP |
+| skills/engineering/ci-cd-and-automation | Automates CI/CD pipeline setup |
+| skills/engineering/code-review-and-quality | Conducts multi-axis code review |
+| skills/engineering/code-simplification | Simplifies code for clarity |
+| skills/engineering/deprecation-and-migration | Manages deprecation and migration |
+| skills/engineering/diagnose | Disciplined diagnosis loop for hard bugs |
+| skills/engineering/doubt-driven-development | Adversarial review of non-trivial decisions |
+| skills/engineering/endpoint-performance-diagnosis | Systematic endpoint performance bottleneck diagnosis |
+| skills/engineering/frontend-ui-engineering | Builds production-quality UIs |
+| skills/engineering/fullstack-dev | Full-stack backend & frontend integration guide |
+| skills/engineering/incremental-implementation | Delivers changes incrementally |
+| skills/engineering/llm-prompt-source-isolation | Isolates current user input from LLM reference context |
+| skills/engineering/newapi-tenant-token-practices | Best practices for NewAPI tenant token lifecycle |
+| skills/engineering/observability-and-instrumentation | Instruments code for production visibility |
+| skills/engineering/performance-optimization | Optimizes application performance |
+| skills/engineering/security-and-hardening | Hardens code against vulnerabilities |
+| skills/engineering/source-driven-development | Grounds decisions in official documentation |
+| skills/engineering/tdd | Test-driven development with red-green-refactor loop |
 
-### Planning & Requirements
-
-| Skill | Description |
-|-------|-------------|
-| skills/planning-requirements/grill-me | Stress-test a plan with relentless questions |
-| skills/planning-requirements/grill-with-docs | Stress-test a plan against the domain model and docs |
-| skills/planning-requirements/idea-refine | Refines raw ideas into actionable concepts |
-| skills/planning-requirements/implementation-design-planning | Turn requirements into confirmed designs and executable plans |
-| skills/planning-requirements/to-issues | Break a plan into independently-grabbable tracker issues |
-| skills/planning-requirements/to-prd | Turn conversation context into a PRD |
-| skills/planning-requirements/zoom-out | Get a higher-level perspective on unfamiliar code |
-
-### Architecture & Quality
+### Planning
 
 | Skill | Description |
 |-------|-------------|
-| skills/architecture-quality/context-engineering | Optimizes agent context setup |
-| skills/architecture-quality/create-agentsmd | Generate AGENTS.md for a repository |
-| skills/architecture-quality/documentation-and-adrs | Records decisions and documentation |
-| skills/architecture-quality/improve-codebase-architecture | Find deepening opportunities in codebases |
-| skills/architecture-quality/setup-matt-pocock-skills | Scaffold repo config for Matt Pocock's skills |
+| skills/planning/grill-me | Stress-test a plan with relentless questions |
+| skills/planning/grill-with-docs | Stress-test a plan against the domain model and docs |
+| skills/planning/idea-refine | Refines raw ideas into actionable concepts |
+| skills/planning/implementation-design-planning | Turn requirements into confirmed designs and executable plans |
+| skills/planning/to-slice | Break a plan into independently-grabbable slices |
+| skills/planning/to-spec | Turn conversation context into a spec |
+| skills/planning/zoom-out | Get a higher-level perspective on unfamiliar code |
 
-### Knowledge Management & Obsidian
-
-| Skill | Description |
-|-------|-------------|
-| skills/knowledge-obsidian/llm-wiki | LLM-driven personal knowledge base |
-| skills/knowledge-obsidian/obsidian-bases | Obsidian Bases (.base files) |
-| skills/knowledge-obsidian/obsidian-cli | Obsidian vault CLI operations |
-| skills/knowledge-obsidian/obsidian-markdown | Obsidian Flavored Markdown |
-
-### VCS & Delivery
+### Architecture
 
 | Skill | Description |
 |-------|-------------|
-| skills/vcs-delivery/commit-msg | Generate conventional commit messages |
-| skills/vcs-delivery/handoff | Compact conversation into handoff document |
-| skills/vcs-delivery/jujutsu | Jujutsu (jj) VCS operations guide |
-| skills/vcs-delivery/shipping-and-launch | Prepares production launches |
+| skills/architecture/context-engineering | Optimizes agent context setup |
+| skills/architecture/create-agentsmd | Generate AGENTS.md for a repository |
+| skills/architecture/documentation-and-adrs | Records decisions and documentation |
+| skills/architecture/improve-codebase-architecture | Find deepening opportunities in codebases |
+| skills/architecture/setup-matt-pocock-skills | Scaffold repo config for Matt Pocock's skills |
 
-### Skill Authoring & Discovery
+### Obsidian
 
 | Skill | Description |
 |-------|-------------|
-| skills/skill-authoring/distill | Distill session context into reusable skills, docs, notes, or checklists |
-| skills/skill-authoring/find-skills | Discover and install agent skills |
-| skills/skill-authoring/using-agent-skills | Discovers and invokes agent skills |
-| skills/skill-authoring/write-a-skill | Create new agent skills |
+| skills/obsidian/llm-wiki | LLM-driven personal knowledge base |
+| skills/obsidian/obsidian-bases | Obsidian Bases (.base files) |
+| skills/obsidian/obsidian-cli | Obsidian vault CLI operations |
+| skills/obsidian/obsidian-markdown | Obsidian Flavored Markdown |
+
+### Delivery
+
+| Skill | Description |
+|-------|-------------|
+| skills/delivery/acceptance-review | Check if a branch satisfies spec and is ready for PR/merge |
+| skills/delivery/commit-msg | Generate conventional commit messages |
+| skills/delivery/handoff | Compact conversation into handoff document |
+| skills/delivery/jujutsu | Jujutsu (jj) VCS operations guide |
+| skills/delivery/shipping-and-launch | Prepares production launches |
+
+### Authoring
+
+| Skill | Description |
+|-------|-------------|
+| skills/authoring/distill | Distill session context into reusable skills, docs, notes, or checklists |
+| skills/authoring/find-skills | Discover and install agent skills |
+| skills/authoring/write-skills | Create new agent skills |
 
 ## Usage
 

@@ -21,5 +21,5 @@ Managed by Trellis. Edits outside this block are preserved; edits inside may be 
 
 ## Project-specific conventions
 
- **Skill scope**: When asked to update/create/modify/optimize a skill in this project, always target the project-level skill under `skills/` (e.g., `skills/vcs-delivery/jujutsu/`). Do not modify the global `~/.pi/agent/skills/` copy.
+ **Skill scope**: When asked to update/create/modify/optimize a skill in this project, always target the project-level skill under `skills/` (e.g., `skills/delivery/jujutsu/`). Do not modify the global `~/.pi/agent/skills/` copy.
 <!-- TRELLIS:END -->

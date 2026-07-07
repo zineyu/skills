@@ -10,24 +10,24 @@ This repository contains agent skills derived from third-party projects.
 
 The following skills are copied or adapted from `addyosmani/agent-skills`:
 
-- `skills/engineering-execution/api-and-interface-design`
-- `skills/engineering-execution/browser-testing-with-devtools`
-- `skills/engineering-execution/ci-cd-and-automation`
-- `skills/engineering-execution/code-review-and-quality`
-- `skills/engineering-execution/code-simplification`
-- `skills/engineering-execution/deprecation-and-migration`
-- `skills/engineering-execution/doubt-driven-development`
-- `skills/engineering-execution/frontend-ui-engineering`
-- `skills/engineering-execution/incremental-implementation`
-- `skills/engineering-execution/observability-and-instrumentation`
-- `skills/engineering-execution/performance-optimization`
-- `skills/engineering-execution/security-and-hardening`
-- `skills/engineering-execution/source-driven-development`
-- `skills/planning-requirements/idea-refine`
-- `skills/architecture-quality/context-engineering`
-- `skills/architecture-quality/documentation-and-adrs`
-- `skills/vcs-delivery/shipping-and-launch`
-- `skills/skill-authoring/using-agent-skills`
+- `skills/engineering/api-and-interface-design`
+- `skills/engineering/browser-testing-with-devtools`
+- `skills/engineering/ci-cd-and-automation`
+- `skills/engineering/code-review-and-quality`
+- `skills/engineering/code-simplification`
+- `skills/engineering/deprecation-and-migration`
+- `skills/engineering/doubt-driven-development`
+- `skills/engineering/frontend-ui-engineering`
+- `skills/engineering/incremental-implementation`
+- `skills/engineering/observability-and-instrumentation`
+- `skills/engineering/performance-optimization`
+- `skills/engineering/security-and-hardening`
+- `skills/engineering/source-driven-development`
+- `skills/planning/idea-refine`
+- `skills/architecture/context-engineering`
+- `skills/architecture/documentation-and-adrs`
+- `skills/delivery/shipping-and-launch`
+- `skills/authoring/find-skills`
 
 The original MIT license is included below.
 
